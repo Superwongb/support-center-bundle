@@ -1,5 +1,5 @@
 <?php 
-namespace Webkul\UVDesk\SupportCenterBundle\Form;
+namespace Harryn\Jacobn\SupportCenterBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
@@ -17,7 +17,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormError;
 use Doctrine\ORM\EntityRepository;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntites;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntites;
 
 class Ticket extends AbstractType
 {   

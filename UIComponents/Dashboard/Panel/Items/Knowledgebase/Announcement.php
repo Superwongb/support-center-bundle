@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Panel\Items\Knowledgebase;
+namespace Harryn\Jacobn\SupportCenterBundle\UIComponents\Dashboard\Panel\Items\Knowledgebase;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarItemInterface;
-use Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Panel\Sidebars\Knowledgebase;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarItemInterface;
+use Harryn\Jacobn\SupportCenterBundle\UIComponents\Dashboard\Panel\Sidebars\Knowledgebase;
 
 class Announcement implements PanelSidebarItemInterface
 {

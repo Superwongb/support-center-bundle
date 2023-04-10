@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Repository;
+namespace Harryn\Jacobn\SupportCenterBundle\Repository;
 
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\Query;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
 
 /**
  * Website
@@ -65,7 +65,7 @@ class SolutionCategory extends EntityRepository
 
         if(isset($data['solutionId'])){
             $qbS = $this->getEntityManager()->createQueryBuilder();
-            $qbS->select('a.categoryId')->from('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping', 'a');
+            $qbS->select('a.categoryId')->from('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategoryMapping', 'a');
             $qbS->where('a.solutionId = :solutionId');
             $qbS->setParameter('solutionId', $data['solutionId']);
 
@@ -164,8 +164,8 @@ class SolutionCategory extends EntityRepository
         $qbS = $this->createQueryBuilder('a');
 
         $result = $qbS->select('COUNT(DISTINCT ac.id)')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.categoryId = a.id')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\Article','aA','WITH', 'ac.articleId = aA.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.categoryId = a.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\Article','aA','WITH', 'ac.articleId = aA.id')
             ->andwhere('ac.categoryId = :categoryId')
             ->andwhere('aA.status IN (:status)')
             ->setParameters([
@@ -183,8 +183,8 @@ class SolutionCategory extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('a');
 
         $results = $queryBuilder->select('s.id, s.name')
-                 ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping','ac','WITH', 'ac.categoryId = a.id')
-                 ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\Solutions','s','WITH', 'ac.solutionId = s.id')
+                 ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategoryMapping','ac','WITH', 'ac.categoryId = a.id')
+                 ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\Solutions','s','WITH', 'ac.solutionId = s.id')
                  ->andwhere('ac.categoryId = :categoryId')
                  ->setParameters([
                      'categoryId' => $categoryId
@@ -201,8 +201,8 @@ class SolutionCategory extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('sc');
 
         $results = $queryBuilder->select('a.id, a.name, a.slug')
-                 ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleCategery','ac','WITH', 'ac.categoryId = sc.id')
-                 ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\Article','a','WITH', 'ac.id = a.id')
+                 ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleCategery','ac','WITH', 'ac.categoryId = sc.id')
+                 ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\Article','a','WITH', 'ac.id = a.id')
                  ->andwhere('ac.categoryId = :categoryId')
                  ->setParameters([
                      'categoryId' => $categoryId
@@ -255,14 +255,14 @@ class SolutionCategory extends EntityRepository
 
     public function bulkCategoryStatusUpdate($categoryIds, $status)
     {
-        $query = 'UPDATE Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory sc SET sc.status = '. (int)$status .' WHERE sc.id IN ('.implode(',', $categoryIds).')';
+        $query = 'UPDATE Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategory sc SET sc.status = '. (int)$status .' WHERE sc.id IN ('.implode(',', $categoryIds).')';
 
         $this->getEntityManager()->createQuery($query)->execute();
     }
 
     public function categorySortingUpdate($id, $sort)
     {
-        $query = "UPDATE Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory sc SET sc.sortOrder = '". (int)$sort ."' WHERE sc.id = '". (int)$id ."'";
+        $query = "UPDATE Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategory sc SET sc.sortOrder = '". (int)$sort ."' WHERE sc.id = '". (int)$id ."'";
 
         $this->getEntityManager()->createQuery($query)->execute();
     }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Controller;
+namespace Harryn\Jacobn\SupportCenterBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\CoreFrameworkBundle\FileSystem\FileSystem;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntites;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\FileSystem\FileSystem;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntites;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

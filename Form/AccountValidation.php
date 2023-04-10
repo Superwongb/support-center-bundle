@@ -1,6 +1,6 @@
 <?php 
 
-namespace Webkul\UVDesk\SupportCenterBundle\Form;
+namespace Harryn\Jacobn\SupportCenterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -33,7 +33,7 @@ class AccountValidation extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Webkul\UserBundle\Entity\User',
+            'data_class' => 'Harryn\UserBundle\Entity\User',
             'csrf_protection' => false, 
             'validation_groups' => 'userValidation',
         ));

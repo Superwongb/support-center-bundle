@@ -47,8 +47,8 @@
 
 	<div class="uv-inner-section">
 		{# Append Panel Aside #}
-		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
-		{% set asideSidebarReference = 'Webkul\\UVDesk\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
+		{% set asideTemplate = 'Harryn\\Jacobn\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Harryn\\Jacobn\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
 
 		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Article
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\SupportCenterBundle\Repository\Article")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\SupportCenterBundle\Repository\Article")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="uv_article", indexes={@ORM\Index(name="search_idx", columns={"slug"})})
  */

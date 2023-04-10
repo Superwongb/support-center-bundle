@@ -1,17 +1,17 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Controller;
+namespace Harryn\Jacobn\SupportCenterBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Webkul\UVDesk\SupportCenterBundle\Form\Category as CategoryForm;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\SupportCenterBundle\Form\Category as CategoryForm;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
 
 class Category extends AbstractController
 {
@@ -255,7 +255,7 @@ class Category extends AbstractController
             $category = $em->getRepository(SupportEntites\SolutionCategory::class)->find($id);
             if($category) {
                 $form = $this->createFormBuilder($category, [
-                    'data_class' => 'Webkul\UVDeskSupportCenterBundle\Entity\SolutionCategory',
+                    'data_class' => 'Harryn\UVDeskSupportCenterBundle\Entity\SolutionCategory',
                     'csrf_protection' => false,
                     'allow_extra_fields' => true
                 ])

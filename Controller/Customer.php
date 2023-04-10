@@ -1,20 +1,20 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Controller;
+namespace Harryn\Jacobn\SupportCenterBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntites;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Form\UserProfile;
+use Harryn\Jacobn\CoreFrameworkBundle\Form\UserProfile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\TokenGenerator;
+use Harryn\Jacobn\CoreFrameworkBundle\Utils\TokenGenerator;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\FileSystem\FileSystem;
+use Harryn\Jacobn\CoreFrameworkBundle\FileSystem\FileSystem;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\FileUploadService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\FileUploadService;
 use Symfony\Component\Filesystem\Filesystem as Fileservice;
 
 Class Customer extends AbstractController

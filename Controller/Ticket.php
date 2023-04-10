@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Controller;
+namespace Harryn\Jacobn\SupportCenterBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -8,21 +8,20 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\SupportCenterBundle\Form\Ticket as TicketForm;
+use Harryn\Jacobn\SupportCenterBundle\Form\Ticket as TicketForm;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService;
-use Webkul\UVDesk\CoreFrameworkBundle\FileSystem\FileSystem;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UVDeskService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\TicketService;
+use Harryn\Jacobn\CoreFrameworkBundle\FileSystem\FileSystem;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\ReCaptchaService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\ReCaptchaService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntites;
-
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntites;
 
 class Ticket extends AbstractController
 {
@@ -580,32 +579,36 @@ class Ticket extends AbstractController
     public function downloadAttachment(Request $request)
     {
         $attachmendId = $request->attributes->get('attachmendId');
-        $attachmentRepository = $this->getDoctrine()->getManager()->getRepository(CoreEntites\Attachment::class);
-        $attachment = $attachmentRepository->findOneById($attachmendId);
+        $attachment = $this->getDoctrine()->getManager()->getRepository(CoreEntites\Attachment::class)->findOneById($attachmendId);
+
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
-        if (!$attachment) {
+        if (empty($attachment)) {
             $this->noResultFound();
         }
 
-        $ticket = $attachment->getThread()->getTicket();
-        $user = $this->userService->getSessionUser();
-        
-        // process only if access for the resource.
-        if (empty($ticket) || ( (!empty($user)) && $user->getId() != $ticket->getCustomer()->getId()) ) {
-            if(!$this->isCollaborator($ticket, $user)) {
-                throw new \Exception('Access Denied', 403);
+        $thread = $attachment->getThread();
+
+        if (!empty($thread)) {
+            $ticket = $thread->getTicket();
+            $user = $this->userService->getSessionUser();
+
+            // process only if access for the resource.
+            if (empty($ticket) || ((!empty($user)) && $user->getId() != $ticket->getCustomer()->getId())) {
+                if (!$this->isCollaborator($ticket, $user)) {
+                    throw new \Exception('Access Denied', 403);
+                }
             }
         }
 
         $path = $this->kernel->getProjectDir() . "/public/". $attachment->getPath();
 
         $response = new Response();
-        $response->setStatusCode(200);
-        
         $response->headers->set('Content-type', $attachment->getContentType());
         $response->headers->set('Content-Disposition', 'attachment; filename='. $attachment->getName());
         $response->headers->set('Content-Length', $attachment->getSize());
+        
+        $response->setStatusCode(200);
         $response->sendHeaders();
         $response->setContent(readfile($path));
         

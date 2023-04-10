@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

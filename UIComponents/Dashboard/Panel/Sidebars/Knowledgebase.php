@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Panel\Sidebars;
+namespace Harryn\Jacobn\SupportCenterBundle\UIComponents\Dashboard\Panel\Sidebars;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarInterface;
 
 class Knowledgebase implements PanelSidebarInterface
 {

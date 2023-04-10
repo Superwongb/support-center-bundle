@@ -1,20 +1,20 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Controller;
+namespace Harryn\Jacobn\SupportCenterBundle\Controller;
 
 use Doctrine\Common\Collections\Criteria;
-use Webkul\UVDesk\SupportCenterBundle\Form;
+use Harryn\Jacobn\SupportCenterBundle\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntites; 
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntites; 
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
 
 
 class Website extends AbstractController
@@ -393,7 +393,7 @@ class Website extends AbstractController
         //             $response = ['code' => 200, 'content' => ['alertClass' => 'success', 'alertMessage' => 'Feedback saved successfully.']];
 
         //             if (empty($articleFeedback)) {
-        //                 $articleFeedback = new \Webkul\SupportCenterBundle\Entity\ArticleFeedback();
+        //                 $articleFeedback = new \Harryn\SupportCenterBundle\Entity\ArticleFeedback();
 
         //                 // $articleBadge->setDescription('');
         //                 $articleFeedback->setIsHelpful($isArticleHelpful);

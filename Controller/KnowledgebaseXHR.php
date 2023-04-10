@@ -1,15 +1,15 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Controller;
+namespace Harryn\Jacobn\SupportCenterBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Filesystem\Filesystem as Fileservice;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
 
 class KnowledgebaseXHR extends AbstractController
 {

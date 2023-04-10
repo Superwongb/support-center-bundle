@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Homepage\Items;
+namespace Harryn\Jacobn\SupportCenterBundle\UIComponents\Dashboard\Homepage\Items;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItem;
-use Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Homepage\Sections\Knowledgebase;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItem;
+use Harryn\Jacobn\SupportCenterBundle\UIComponents\Dashboard\Homepage\Sections\Knowledgebase;
 
 class Categories extends HomepageSectionItem
 {

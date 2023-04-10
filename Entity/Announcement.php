@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
 
 /**
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\SupportCenterBundle\Repository\AnnouncementRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\SupportCenterBundle\Repository\AnnouncementRepository")
  */
 class Announcement
 {
@@ -18,7 +18,7 @@ class Announcement
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup")
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup")
      * @ORM\JoinColumn(nullable=false)
      */
     private $group;

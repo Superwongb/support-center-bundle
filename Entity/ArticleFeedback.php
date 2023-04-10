@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -39,15 +39,15 @@ class ArticleFeedback
     private $createdAt;
 
     /**
-     * @var \Webkul\UVDesk\SupportCenterBundle\Entity\Article
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\SupportCenterBundle\Entity\Article")
+     * @var \Harryn\Jacobn\SupportCenterBundle\Entity\Article
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\SupportCenterBundle\Entity\Article")
      * @ORM\JoinColumn(name="article_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $article;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\CoreFrameworkBundle\Entity\User")
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\CoreFrameworkBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $ratedCustomer;
@@ -135,10 +135,10 @@ class ArticleFeedback
     /**
      * Set article
      *
-     * @param \Webkul\UVDesk\SupportCenterBundle\Entity\Article $article
+     * @param \Harryn\Jacobn\SupportCenterBundle\Entity\Article $article
      * @return ArticleFeedback
      */
-    public function setArticle(\Webkul\UVDesk\SupportCenterBundle\Entity\Article $article = null)
+    public function setArticle(\Harryn\Jacobn\SupportCenterBundle\Entity\Article $article = null)
     {
         $this->article = $article;
 
@@ -148,7 +148,7 @@ class ArticleFeedback
     /**
      * Get article
      *
-     * @return \Webkul\UVDesk\SupportCenterBundle\Entity\Article 
+     * @return \Harryn\Jacobn\SupportCenterBundle\Entity\Article 
      */
     public function getArticle()
     {
@@ -158,10 +158,10 @@ class ArticleFeedback
     /**
      * Set ratedCustomer
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\User $ratedCustomer
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\User $ratedCustomer
      * @return ArticleFeedback
      */
-    public function setRatedCustomer(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $ratedCustomer = null)
+    public function setRatedCustomer(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $ratedCustomer = null)
     {
         $this->ratedCustomer = $ratedCustomer;
 
@@ -171,7 +171,7 @@ class ArticleFeedback
     /**
      * Get ratedCustomer
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\User 
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\User 
      */
     public function getRatedCustomer()
     {

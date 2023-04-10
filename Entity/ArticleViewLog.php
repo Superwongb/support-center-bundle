@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,15 +27,15 @@ class ArticleViewLog
     private $viewedAt;
 
     /**
-     * @var \Webkul\UserBundle\Entity\User
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\CoreFrameworkBundle\Entity\User")
+     * @var \Harryn\UserBundle\Entity\User
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\CoreFrameworkBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */
     private $user;
 
     /**
-     * @var \Webkul\SupportCenterBundle\Entity\Article
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\SupportCenterBundle\Entity\Article")
+     * @var \Harryn\SupportCenterBundle\Entity\Article
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\SupportCenterBundle\Entity\Article")
      * @ORM\JoinColumn(name="article_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $article;
@@ -77,10 +77,10 @@ class ArticleViewLog
     /**
      * Set user
      *
-     * @param \Webkul\UserBundle\Entity\User $user
+     * @param \Harryn\UserBundle\Entity\User $user
      * @return ArticleViewLog
      */
-    public function setUser(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $user = null)
+    public function setUser(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -90,7 +90,7 @@ class ArticleViewLog
     /**
      * Get user
      *
-     * @return \Webkul\UserBundle\Entity\User 
+     * @return \Harryn\UserBundle\Entity\User 
      */
     public function getUser()
     {
@@ -102,10 +102,10 @@ class ArticleViewLog
     /**
      * Set article
      *
-     * @param \Webkul\SupportCenterBundle\Entity\Article $article
+     * @param \Harryn\SupportCenterBundle\Entity\Article $article
      * @return ArticleViewLog
      */
-    public function setArticle(\Webkul\UVDesk\SupportCenterBundle\Entity\Article $article = null)
+    public function setArticle(\Harryn\Jacobn\SupportCenterBundle\Entity\Article $article = null)
     {
         $this->article = $article;
 
@@ -115,7 +115,7 @@ class ArticleViewLog
     /**
      * Get article
      *
-     * @return \Webkul\SupportCenterBundle\Entity\Article 
+     * @return \Harryn\SupportCenterBundle\Entity\Article 
      */
     public function getArticle()
     {

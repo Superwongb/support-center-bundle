@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Repository;
+namespace Harryn\Jacobn\SupportCenterBundle\Repository;
 
 use Doctrine\ORM\Query;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\Request;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntites;
 
 class Article extends EntityRepository
 {
@@ -64,8 +64,8 @@ class Article extends EntityRepository
         $qbS = $this->getEntityManager()->createQueryBuilder();
 
         $results = $qbS->select('a.id, a.dateAdded, a.content')
-                        ->from('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleHistory', 'a')
-                        ->leftJoin('Webkul\UVDesk\CoreFrameworkBundle\Entity\User','u','WITH', 'a.userId = u.id')
+                        ->from('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleHistory', 'a')
+                        ->leftJoin('Harryn\Jacobn\CoreFrameworkBundle\Entity\User','u','WITH', 'a.userId = u.id')
                         ->leftJoin('u.userInstance', 'ud')
                         ->addSelect("CONCAT(u.firstName,' ',u.lastName) AS name")
                         ->andwhere('a.articleId = :articleId')
@@ -90,8 +90,8 @@ class Article extends EntityRepository
         $qbS = $this->getEntityManager()->createQueryBuilder();
 
         $qbS->select('DISTINCT a.id, a.relatedArticleId as articleId, aR.name, aR.stared, aR.status, aR.slug')
-            ->from('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleRelatedArticle', 'a')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\Article','aR','WITH', 'a.relatedArticleId = aR.id')
+            ->from('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleRelatedArticle', 'a')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\Article','aR','WITH', 'a.relatedArticleId = aR.id')
             
             ->andwhere('a.articleId = :articleId')
             ->andwhere('aR.status IN (:status)')
@@ -123,7 +123,7 @@ class Article extends EntityRepository
         if(isset($data['categoryId']))
         {
             $qbS = $this->getEntityManager()->createQueryBuilder();
-            $qbS->select('a.articleId')->from('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleCategory', 'a');
+            $qbS->select('a.articleId')->from('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleCategory', 'a');
             $qbS->where('a.categoryId = :categoryId');
             $qbS->setParameter('categoryId', $data['categoryId']);
 
@@ -133,8 +133,8 @@ class Article extends EntityRepository
         
         if (isset($data['solutionId'])) {
             $qbS = $this->getEntityManager()->createQueryBuilder();
-            $qbS->select('DISTINCT ac.articleId')->from('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping', 'scm');
-            $qbS->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleCategory', 'ac', 'with', 'scm.categoryId = ac.categoryId');
+            $qbS->select('DISTINCT ac.articleId')->from('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategoryMapping', 'scm');
+            $qbS->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleCategory', 'ac', 'with', 'scm.categoryId = ac.categoryId');
             $qbS->where('scm.solutionId = :solutionId');
             $qbS->setParameter('solutionId', $data['solutionId']);
 
@@ -149,7 +149,7 @@ class Article extends EntityRepository
                 if(in_array($search[0], $this->searchAllowed)){
                     if($search[0] == 'tag'){
                         $qbS = $this->getEntityManager()->createQueryBuilder();
-                        $qbS->select('at.articleId')->from('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleTags', 'at');
+                        $qbS->select('at.articleId')->from('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleTags', 'at');
                           
                         $articlesTag = $qbS->getQuery()->getResult();
 
@@ -248,8 +248,8 @@ class Article extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('a');
 
         $results = $queryBuilder->select('c.id, c.name')
-                 ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
-                 ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory','c','WITH', 'ac.categoryId = c.id')
+                 ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
+                 ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategory','c','WITH', 'ac.categoryId = c.id')
                  ->andwhere('ac.articleId = :articleId')
                  ->setParameters([
                      'articleId' => $id,
@@ -266,8 +266,8 @@ class Article extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('a');
 
         $results = $queryBuilder->select('DISTINCT t.id, t.name')
-                ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleTags','at','WITH', 'at.articleId = a.id')
-                ->leftJoin('Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag','t','WITH', 'at.tagId = t.id')
+                ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleTags','at','WITH', 'at.articleId = a.id')
+                ->leftJoin('Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag','t','WITH', 'at.tagId = t.id')
                 ->andwhere('at.articleId = :articleId')
                 ->setParameters([
                     'articleId' => $id,
@@ -344,7 +344,7 @@ class Article extends EntityRepository
 
     public function bulkArticleStatusUpdate($ids, $status)
     {
-        $query = 'UPDATE Webkul\UVDesk\SupportCenterBundle\Entity\Article a SET a.status = '. (int)$status .' WHERE a.id IN ('.implode(',', $ids).')';
+        $query = 'UPDATE Harryn\Jacobn\SupportCenterBundle\Entity\Article a SET a.status = '. (int)$status .' WHERE a.id IN ('.implode(',', $ids).')';
 
         $this->getEntityManager()->createQuery($query)->execute();
     }
@@ -375,7 +375,7 @@ class Article extends EntityRepository
                     );
 
         $results = $queryBuilder->select('a')
-                 ->leftJoin('Webkul\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
+                 ->leftJoin('Harryn\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
                  ->andwhere('a.solutionId = :solutionId')
                  ->andwhere('ac.categoryId = :categoryId')
                  ->orderBy(
@@ -422,7 +422,7 @@ class Article extends EntityRepository
                     );
 
         $results = $queryBuilder->select('a')
-                 ->leftJoin('Webkul\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
+                 ->leftJoin('Harryn\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
                  ->andwhere('a.solutionId = :solutionId')
                  ->andwhere('ac.categoryId = :categoryId')
                  ->andwhere('a.status = 1')
@@ -447,7 +447,7 @@ class Article extends EntityRepository
                     );
 
         $results = $queryBuilder->select('ac')
-                 ->leftJoin('Webkul\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
+                 ->leftJoin('Harryn\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'ac.articleId = a.id')
                  ->andwhere('ac.articleId = :articleId')
                  ->orderBy(
                         $request->query->get('sort') ? 'a.'.$request->query->get('sort') : 'a.id',

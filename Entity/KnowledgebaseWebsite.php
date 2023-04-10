@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -401,8 +401,8 @@ class KnowledgebaseWebsite
         return $this->broadcastMessage;
     }
     /**
-     * @var \Webkul\UVDesk\SupportCenterBundle\Entity\Website
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\CoreFrameworkBundle\Entity\Website")
+     * @var \Harryn\Jacobn\SupportCenterBundle\Entity\Website
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\CoreFrameworkBundle\Entity\Website")
      * @ORM\JoinColumn(name="website", referencedColumnName="id")
      */
     private $website;
@@ -453,11 +453,11 @@ class KnowledgebaseWebsite
     /**
      * Set website.
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Website|null $website
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Website|null $website
      *
      * @return KnowledgebaseWebsite
      */
-    public function setWebsite(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Website $website = null)
+    public function setWebsite(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Website $website = null)
     {
         $this->website = $website;
 
@@ -467,7 +467,7 @@ class KnowledgebaseWebsite
     /**
      * Get website.
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\Website|null
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\Website|null
      */
     public function getWebsite()
     {
