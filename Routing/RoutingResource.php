@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Routing;
+namespace Harryn\Jacobn\SupportCenterBundle\Routing;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Definition\RoutingResourceInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Definition\RoutingResourceInterface;
 
 class RoutingResource implements RoutingResourceInterface
 {

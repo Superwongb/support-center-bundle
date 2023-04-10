@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Homepage\Sections;
+namespace Harryn\Jacobn\SupportCenterBundle\UIComponents\Dashboard\Homepage\Sections;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSection;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSection;
 
 class Knowledgebase extends HomepageSection
 {

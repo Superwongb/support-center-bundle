@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Fixtures;
+namespace Harryn\Jacobn\SupportCenterBundle\Fixtures;
 
 use Doctrine\Persistence\ObjectManager;
-use Webkul\UVDesk\CoreEntities\Entity as CoreEntities;
+use Harryn\Jacobn\CoreEntities\Entity as CoreEntities;
 use Doctrine\Bundle\FixturesBundle\Fixture as DoctrineFixture;
-use Webkul\UVDesk\SupportCenterBundle\Templates\Email\Resources as SupportCenterEmailTemplates;
+use Harryn\Jacobn\SupportCenterBundle\Templates\Email\Resources as SupportCenterEmailTemplates;
 
 class EmailTemplates extends DoctrineFixture
 {

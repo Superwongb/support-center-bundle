@@ -1,4 +1,4 @@
-Webkul\UVDesk\SupportCenterBundle\Entity\Solutions:
+Harryn\Jacobn\SupportCenterBundle\Entity\Solutions:
     properties:
         name:
             - NotBlank: { message: "solution.name.not_blank" }
@@ -14,7 +14,7 @@ Webkul\UVDesk\SupportCenterBundle\Entity\Solutions:
                 max: 500
                 maxMessage: "solution.description.length"
 
-Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory:
+Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategory:
     properties:
         name:
             - NotBlank: { message: "category.name.not_blank" }
@@ -30,7 +30,7 @@ Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory:
                 max: 500
                 maxMessage: "category.description.length"
 
-Webkul\UVDesk\SupportCenterBundle\Entity\Article:
+Harryn\Jacobn\SupportCenterBundle\Entity\Article:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
             fields: [slug]
@@ -61,7 +61,7 @@ Webkul\UVDesk\SupportCenterBundle\Entity\Article:
                 mimeTypes: ['text/html', 'text/plain']
                 mimeTypesMessage: "Please upload HTML file !!"
 
-Webkul\UVDesk\SupportCenterBundle\Entity\Website:
+Harryn\Jacobn\SupportCenterBundle\Entity\Website:
     group_sequence:
         - General
         - GeneralPro
@@ -72,7 +72,7 @@ Webkul\UVDesk\SupportCenterBundle\Entity\Website:
             groups: [General]
             fields: [domain]
             message: "This Domain is not available"
-        - Webkul\UVDesk\SupportCenterBundle\Validator\Constraints\UniqueDomain: { groups:[ General] }
+        - Harryn\Jacobn\SupportCenterBundle\Validator\Constraints\UniqueDomain: { groups:[ General] }
     properties:
         name:
             - NotBlank: { message: "This field is mandatory", groups: [General] }

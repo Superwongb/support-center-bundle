@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Repository;
+namespace Harryn\Jacobn\SupportCenterBundle\Repository;
 
-use Webkul\UVDesk\SupportCenterBundle\Entity\Announcement;
+use Harryn\Jacobn\SupportCenterBundle\Entity\Announcement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Common\Collections\Criteria;

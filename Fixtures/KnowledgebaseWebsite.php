@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Fixtures;
+namespace Harryn\Jacobn\SupportCenterBundle\Fixtures;
 
 use Doctrine\Persistence\ObjectManager;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntities;
 use Doctrine\Bundle\FixturesBundle\Fixture as DoctrineFixture;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportCenterEntities;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportCenterEntities;
 
 class KnowledgebaseWebsite extends DoctrineFixture
 {

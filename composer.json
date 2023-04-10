@@ -1,6 +1,6 @@
 {
-    "name": "uvdesk/support-center-bundle",
-    "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
+    "name": "jacobn/support-center-bundle",
+    "description": "Jacobn Community Helpdesk Customer Support Center Bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
@@ -12,13 +12,18 @@
     "require": {
         "php": "^7.2.5 || ^8.0",
         "uvdesk/composer-plugin": "^1.1",
-        "uvdesk/core-framework": "^1.1"
+        "jacobn/core-framework": "^1.1"
     },
     "autoload": {
-        "psr-4": { "Webkul\\UVDesk\\SupportCenterBundle\\": "" }
+        "psr-4": { "Harryn\\Jacobn\\SupportCenterBundle\\": "" }
     },
     "extra": {
-        "uvdesk-package-extension": "Webkul\\UVDesk\\SupportCenterBundle\\Package\\Composer"
+        "uvdesk-package-extension": "Harryn\\Jacobn\\SupportCenterBundle\\Package\\Composer"
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "uvdesk/composer-plugin": true
+        }
+    }
 }

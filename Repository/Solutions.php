@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Repository;
+namespace Harryn\Jacobn\SupportCenterBundle\Repository;
 
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Webkul\UVDesk\SupportCenterBundle\Entity as SupportEntites;
+use Harryn\Jacobn\SupportCenterBundle\Entity as SupportEntites;
 
 class Solutions extends \Doctrine\ORM\EntityRepository
 {
@@ -145,8 +145,8 @@ class Solutions extends \Doctrine\ORM\EntityRepository
 
         $categories = $queryBuilder
             ->select('sc.id, sc.name')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping','ac','WITH', 'ac.solutionId = a.id')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory','sc','WITH', 'ac.categoryId = sc.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategoryMapping','ac','WITH', 'ac.solutionId = a.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategory','sc','WITH', 'ac.categoryId = sc.id')
             ->andwhere('ac.solutionId = :solutionId')
             ->andwhere('sc.status IN (:status)')
             ->setParameters([
@@ -175,8 +175,8 @@ class Solutions extends \Doctrine\ORM\EntityRepository
 
         $result = $queryBuilder
             ->select('COUNT(a.id)')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping','ac','WITH', 'ac.solutionId = a.id')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory','sc','WITH', 'ac.categoryId = sc.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategoryMapping','ac','WITH', 'ac.solutionId = a.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategory','sc','WITH', 'ac.categoryId = sc.id')
             ->andwhere('ac.solutionId = :solutionId')
             ->andwhere('sc.status IN (:status)')
             ->setParameters([
@@ -195,9 +195,9 @@ class Solutions extends \Doctrine\ORM\EntityRepository
         $queryBuilder = $this->createQueryBuilder('a');
         $result = $queryBuilder
             ->select('COUNT(DISTINCT aa.id)')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping','sac','WITH', 'sac.solutionId = a.id')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'sac.categoryId = ac.categoryId')
-            ->leftJoin('Webkul\UVDesk\SupportCenterBundle\Entity\Article','aa','WITH', 'ac.articleId = aa.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\SolutionCategoryMapping','sac','WITH', 'sac.solutionId = a.id')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\ArticleCategory','ac','WITH', 'sac.categoryId = ac.categoryId')
+            ->leftJoin('Harryn\Jacobn\SupportCenterBundle\Entity\Article','aa','WITH', 'ac.articleId = aa.id')
             ->where('sac.solutionId = :solutionId')
             ->andwhere('ac.id IS NOT NULL')
             ->andwhere('aa.status != :status')

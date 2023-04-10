@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle;
+namespace Harryn\Jacobn\SupportCenterBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Webkul\UVDesk\SupportCenterBundle\DependencyInjection\SupportCenterExtension;
+use Harryn\Jacobn\SupportCenterBundle\DependencyInjection\SupportCenterExtension;
 
 class UVDeskSupportCenterBundle extends Bundle
 {

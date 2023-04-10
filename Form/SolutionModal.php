@@ -1,5 +1,5 @@
 <?php 
-namespace Webkul\UVDesk\SupportCenterBundle\Form;
+namespace Harryn\Jacobn\SupportCenterBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -72,7 +72,7 @@ class SolutionModal extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Webkul\SupportCenterBundle\Entity\Solutions',
+            'data_class' => 'Harryn\SupportCenterBundle\Entity\Solutions',
         ));
     }
 

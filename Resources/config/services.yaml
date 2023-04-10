@@ -4,14 +4,14 @@ services:
         autoconfigure: true
         public: false
     
-    Webkul\UVDesk\SupportCenterBundle\:
+    Harryn\Jacobn\SupportCenterBundle\:
         resource: '../../*'
         exclude: '../../{DependencyInjection,Entity,Package,Templates,Migrations,Tests}'
     
-    Webkul\UVDesk\SupportCenterBundle\Controller\:
+    Harryn\Jacobn\SupportCenterBundle\Controller\:
         resource: '../../Controller/*'
         tags: ['controller.service_arguments']
     
-    Webkul\UVDesk\SupportCenterBundle\Fixtures\:    
+    Harryn\Jacobn\SupportCenterBundle\Fixtures\:    
         resource: '../../Fixtures/*'
         tags: ['doctrine.fixture.orm']

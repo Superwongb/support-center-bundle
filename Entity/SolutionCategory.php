@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\SupportCenterBundle\Entity;
+namespace Harryn\Jacobn\SupportCenterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SolutionCategory
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\SupportCenterBundle\Repository\SolutionCategory")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\SupportCenterBundle\Repository\SolutionCategory")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="uv_solution_category")
  */
