@@ -85,7 +85,7 @@ class AnnouncementRepository extends ServiceEntityRepository
         $paginationData = $results->getPaginationData();
         $queryParameters = $results->getParams();
 
-        $paginationData['url'] = '#'.$container->get('uvdesk.service')->buildPaginationQuery($queryParameters);
+        $paginationData['url'] = '#'.$container->get('jacobn.service')->buildPaginationQuery($queryParameters);
 
         $json['groups'] = $newResult;
         $json['pagination_data'] = $paginationData;
