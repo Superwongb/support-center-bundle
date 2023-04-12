@@ -1,12 +1,12 @@
 <p align="center"><a href="https://www.uvdesk.com/en/" target="_blank">
-    <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.uvdesk.com/uvdesk/bundles/webkuldefault/images/uvdesk-wide.svg">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.uvdesk.com/jacobn/bundles/webkuldefault/images/uvdesk-wide.svg">
 </a></p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/uvdesk/support-center-bundle"><img src="https://poser.pugx.org/uvdesk/support-center-bundle/v/stable.svg" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/uvdesk/support-center-bundle"><img src="https://poser.pugx.org/uvdesk/support-center-bundle/d/total.svg" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/uvdesk/support-center-bundle"><img src="https://poser.pugx.org/uvdesk/support-center-bundle/license.svg" alt="License"></a>
-    <a href="https://gitter.im/uvdesk/support-center-bundle"><img src="https://badges.gitter.im/uvdesk/support-center-bundle.svg" alt="connect on gitter"></a>
+    <a href="https://packagist.org/packages/jacobn/support-center-bundle"><img src="https://poser.pugx.org/jacobn/support-center-bundle/v/stable.svg" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/jacobn/support-center-bundle"><img src="https://poser.pugx.org/jacobn/support-center-bundle/d/total.svg" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/jacobn/support-center-bundle"><img src="https://poser.pugx.org/jacobn/support-center-bundle/license.svg" alt="License"></a>
+    <a href="https://gitter.im/jacobn/support-center-bundle"><img src="https://badges.gitter.im/jacobn/support-center-bundle.svg" alt="connect on gitter"></a>
 </p>
 
 The **UVDeskSupportCenterBundle** introduces the Support Center portal to the [Jacobn Community][1] helpdesk, a nifty solution to provide your customers with an easy interface to manage their tickets and easily engage with your support staff. The Support Center also includes a Knowledgebase that can be easily managed by your support staff.
@@ -25,7 +25,7 @@ Before installing, make sure that you have [Composer][2] installed.
 To require the support center bundle into your uvdesk community helpdesk project, simply run the following from your project root:
 
 ```bash
-$ composer require uvdesk/support-center-bundle
+$ composer require jacobn/support-center-bundle
 ```
 
 License

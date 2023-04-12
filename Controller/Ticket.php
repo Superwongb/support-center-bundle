@@ -99,9 +99,9 @@ class Ticket extends AbstractController
                         try {
                             $customFieldsService = null;
                             
-                            if ($this->userService->isfileExists('apps/uvdesk/custom-fields')) {
+                            if ($this->userService->isfileExists('apps/jacobn/custom-fields')) {
                                 $customFieldsService = $this->get('uvdesk_package_custom_fields.service');
-                            } else if ($this->userService->isfileExists('apps/uvdesk/form-component')) {
+                            } else if ($this->userService->isfileExists('apps/jacobn/form-component')) {
                                 $customFieldsService = $this->get('uvdesk_package_form_component.service');
                             }
 
@@ -223,7 +223,7 @@ class Ticket extends AbstractController
                             'entity' => $thread->getTicket(),
                         ]);
     
-                        $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
     
                         if(null != $this->getUser()) {
                             return $this->redirect($this->generateUrl('helpdesk_customer_ticket_collection'));
@@ -352,7 +352,7 @@ class Ticket extends AbstractController
                     ]);
                 }
 
-                $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                 $this->addFlash('success', $this->translator->trans('Success ! Reply added successfully.'));
             } else {
@@ -660,7 +660,7 @@ class Ticket extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
                    
                     $json['collaborator'] =  $this->userService->getCustomerPartialDetailById($collaborator->getId());
                     $json['alertClass'] = 'success';
